@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product Browser</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-label="Product browser overview">
+        <div class="hero-copy">
+          <span class="eyebrow">CodeVector backend task</span>
+          <h1>Product Browser</h1>
+          <p id="summary">Browse 200,000 seeded products newest first with stable cursor pagination.</p>
+        </div>
+        <div class="metrics" aria-label="Project highlights">
+          <div class="metric">
+            <strong id="totalProducts">200,000</strong>
+            <span>seeded rows</span>
+          </div>
+          <div class="metric">
+            <strong>Keyset</strong>
+            <span>pagination</span>
+          </div>
+          <div class="metric">
+            <strong>Snapshot</strong>
+            <span>consistent pages</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Product filters">
+        <div class="panel-heading">
+          <div>
+            <h2>Browse Data</h2>
+            <p>Use filters, then keep loading pages without duplicate rows during the same session.</p>
+          </div>
+          <span class="pill" id="pageMode">Newest first</span>
+        </div>
+
+        <div class="controls">
+          <label>
+            Category
+            <select id="category">
+              <option value="">All categories</option>
+            </select>
+          </label>
+          <label>
+            Page size
+            <select id="limit">
+              <option>25</option>
+              <option selected>50</option>
+              <option>100</option>
+              <option>200</option>
+            </select>
+          </label>
+          <button id="refresh" type="button">Refresh</button>
+        </div>
+      </section>
+
+      <section class="table-wrap" aria-label="Product results">
+        <table>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Created</th>
+              <th>Updated</th>
+            </tr>
+          </thead>
+          <tbody id="products"></tbody>
+        </table>
+      </section>
+
+      <footer class="pager">
+        <div>
+          <strong id="status">Ready</strong>
+          <span id="hint">First page creates a snapshot; next pages reuse it.</span>
+        </div>
+        <button id="next" type="button" disabled>Next page</button>
+      </footer>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
